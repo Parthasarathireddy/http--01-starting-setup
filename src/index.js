@@ -2,7 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import axios from 'axios';
 import registerServiceWorker from './registerServiceWorker';
 
+axios.interceptors.request.use(requestConfig =>{
+    console.log(requestConfig);
+    //Need to always return request config other wise its blocking request.
+    return requestConfig;
+}, error =>{
+    console.log("Error :" + error);
+    return Promise.reject(error);
+})
+axios.interceptors.response.use(responseConfig =>{
+    console.log(responseConfig);
+    //Need to always return response config other wise its blocking response.
+    return responseConfig;
+}, error =>{
+    console.log("Error :" + error);
+    return Promise.reject(error);
+})
 ReactDOM.render( <App />, document.getElementById( 'root' ) );
 registerServiceWorker();
