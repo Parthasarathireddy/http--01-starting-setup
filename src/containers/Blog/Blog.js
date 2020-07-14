@@ -13,7 +13,7 @@ class Blog extends Component {
     }
     componentDidMount(){
         //this Get method expects atleast one arg
-        axios.get('https://jsonplaceholder.typicode.com/posts').then((response) =>{
+        axios.get('/posts').then((response) =>{
             const posts = response.data.slice(0,4);
             const updatePosts = posts.map(post => {
                 return {
