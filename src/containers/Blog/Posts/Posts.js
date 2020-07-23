@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import axios from '../../../Axios';
 import Post from '../../../components/Post/Post';
 import './Posts.css';
+import {Link} from 'react-router-dom';
 class Posts extends Component {
     state = {
         posts : [],
@@ -34,10 +35,10 @@ class Posts extends Component {
         let posts = <p style = {{textAlign : 'center'}}>Something went wrong</p>
         if(!this.state.error){
             posts = this.state.posts.map(post => {
-                return <Post key = {post.id} 
-                title = {post.title} 
+                return <Link to = {'/' + post.id} key = {post.id}>
+                <Post title = {post.title} 
                 author = {post.author}
-                clicked = {() => this.postSelectHandler(post.id)}/>
+                clicked = {() => this.postSelectHandler(post.id)}/></Link>
              });
         }
         return (
