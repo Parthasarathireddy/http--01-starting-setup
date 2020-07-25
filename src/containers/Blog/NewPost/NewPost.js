@@ -21,7 +21,10 @@ class NewPost extends Component {
         }
         axios.post('/posts', data).then(response =>{
             console.log(response);
-            this.setState({submitted : true});
+            //by using below history.push when click on back button its go back again
+            //this.props.history.push('/posts');
+            this.props.history.replace('/posts');
+           // this.setState({submitted : true});
         });
     }
 
