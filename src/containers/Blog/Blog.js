@@ -1,4 +1,5 @@
-import React, { Component, Suspense } from 'react';
+import React, { Component } from 'react';
+//import React, { Component, Suspense } from 'react';
 //here replacing with Axios instance;
 //import axios from 'axios';
 import axios from '../../Axios';
