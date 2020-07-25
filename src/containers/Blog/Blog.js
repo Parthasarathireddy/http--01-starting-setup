@@ -7,6 +7,9 @@ import Posts from './Posts/Posts';
 import {Route, NavLink, Switch, Redirect} from 'react-router-dom';
 import NewPost from './NewPost/NewPost';
 class Blog extends Component {
+    state = {
+        auth : false
+    }
     render () {
         return (
             <div className="Blogs">
@@ -28,9 +31,10 @@ class Blog extends Component {
                 {/* <Route path = '/' exact render = {() => <Posts />}/> */}
                 {/* Switch will help you to load one component at a time and while using Swith order also importent */}
                 <Switch>
-                    <Route path = '/new-post' component = {NewPost} />
+                    {this.state.auth ? <Route path = '/new-post' component = {NewPost}/> : null}
                     <Route path = '/posts' component = {Posts} />
-                    <Redirect from = '/' to = '/posts' />
+                    {/* <Redirect from = '/' to = '/posts' /> */}
+                    <Route render = {() => <h1>Not Found!</h1>}/>
                 </Switch>
                 
             </div>
