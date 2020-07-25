@@ -6,7 +6,6 @@ import './Blog.css';
 import Posts from './Posts/Posts';
 import {Route, NavLink, Switch} from 'react-router-dom';
 import NewPost from './NewPost/NewPost';
-import FullPost from './FullPost/FullPost';
 class Blog extends Component {
     render () {
         return (
@@ -14,7 +13,7 @@ class Blog extends Component {
                 <header>
                     <nav>
                         <ul>
-                            <li><NavLink to = '/' exact>Home</NavLink></li>
+                            <li><NavLink to = '/posts' exact>Home</NavLink></li>
                             <li><NavLink to = {{
                                 //below absolute Path
                                 pathname : '/new-post',
@@ -29,9 +28,8 @@ class Blog extends Component {
                 {/* <Route path = '/' exact render = {() => <Posts />}/> */}
                 {/* Switch will help you to load one component at a time and while using Swith order also importent */}
                 <Switch>
-                    <Route path = '/' exact component = {Posts} />
-                    <Route path = '/new-post' component = {NewPost} />
-                    <Route path = '/:id' exact component = {FullPost} />
+                <Route path = '/new-post' component = {NewPost} />
+                    <Route path = '/posts' component = {Posts} />
                 </Switch>
                 
             </div>
